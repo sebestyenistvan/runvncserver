@@ -9,6 +9,7 @@
 
 # What's the script name
 SCRIPTNAME="runvncserver"
+
 # Where the x0vncserver executable is located, default:
 VNCSERVER="/usr/bin/x0vncserver"
 
@@ -26,6 +27,9 @@ PASSWDFILE="$VNCDIR/passwd"
 
 # Leave this on ":0", since we want to log in to the actual session
 DISPLAY=":0"
+
+# Set the port (default 5900)
+VNCPORT="5900"
 
 # PID of the actual VNC server running
 # The PID is actually created this way, so it is compatible with the vncserver command
@@ -72,7 +76,7 @@ case "$1" in
             echo -e $FAILED
             echo -e "VNC Server is running with PID $VAR"
         else
-            $VNCSERVER -display $DISPLAY -passwordfile $PASSWDFILE >> $LOGFILE 2>&1 &
+            $VNCSERVER -display $DISPLAY -passwordfile $PASSWDFILE -rfbport $VNCPORT >> $LOGFILE 2>&1 &
             fn_pid
             echo $VAR > $PIDFILE
             echo -e $OK
@@ -90,7 +94,7 @@ case "$1" in
 
             if [ $? -eq 0 ]
             then 
-                $VNCSERVER -display $DISPLAY -passwordfile $PASSWDFILE >> $LOGFILE 2>&1 &
+                $VNCSERVER -display $DISPLAY -passwordfile $PASSWDFILE -rfbport $VNCPORT >> $LOGFILE 2>&1 &
                 echo -e $OK
                 fn_pid 
                 echo $VAR > $PIDFILE
@@ -103,7 +107,7 @@ case "$1" in
 
         else
 
-            $VNCSERVER -display $DISPLAY -passwordfile $PASSWDFILE >> $LOGFILE 2>&1 &
+            $VNCSERVER -display $DISPLAY -passwordfile $PASSWDFILE -rfbport $VNCPORT >> $LOGFILE 2>&1 &
             if [ $? -eq 0 ]
             then
                 echo -e $OK
