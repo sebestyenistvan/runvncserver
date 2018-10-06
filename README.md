@@ -17,4 +17,5 @@ Notes: If you want to automatically start with the Xsession, you can put it to y
 Like this:
 
 user@linux:~$ cat ~/.xsessionrc
+
 /home/user/runvncserver/runvncserver >/dev/null 2>&1
