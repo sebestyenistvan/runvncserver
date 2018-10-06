@@ -20,10 +20,14 @@ The default port is for the :0 display 5900. If you want to change it, just edit
 `restart` - will restart the Tiger VNC Server on display :0 (if it's not running, it will just start it)  
 
 ## Files
-* *~/.vnc* Directory  
-* *~/.vnc/passwd* Password file for VNC Server
-* *~/.vnc/logfile* Logfile location
-* *~/.vnc/hostname:0.pid* PID File
+* *~/.vnc*  
+Directory  
+* *~/.vnc/passwd*  
+Password file for VNC Server
+* *~/.vnc/logfile*  
+Logfile location
+* *~/.vnc/hostname:0.pid*  
+PID File
 
 ## Notes
 
