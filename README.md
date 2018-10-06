@@ -18,4 +18,4 @@ Like this:
 
 user@linux:~$ cat ~/.xsessionrc
 
-/home/istvan/runvncserver.sh >/dev/null 2>&1
+/home/user/runvncserver >/dev/null 2>&1
