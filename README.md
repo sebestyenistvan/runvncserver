@@ -21,13 +21,13 @@ The default port is for the :0 display 5900. If you want to change it, just edit
 
 ## Files
 * *~/.vnc*  
-Directory  
+Directory (if it doesn't exist, create it with `mkdir -p ~/.vnc`)
 * *~/.vnc/passwd*  
-Password file for VNC Server
+Password file for VNC Server (if it doesn't exist, create it with `vncpasswd`)
 * *~/.vnc/logfile*  
-Logfile location
+Logfile location (created by script)
 * *~/.vnc/hostname:0.pid*  
-PID File
+PID File (created by script)
 
 ## Notes
 
