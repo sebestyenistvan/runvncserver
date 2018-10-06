@@ -42,3 +42,8 @@ Like this:
 
 > user@linux:~$ cat ~/.xsessionrc  
 > /home/user/runvncserver/runvncserver >/dev/null 2>&1
+
+## Author
+István Sebestyén-Teleki
+
+Any patches or suggestions are welcome!
