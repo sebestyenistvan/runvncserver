@@ -13,15 +13,16 @@ The default port is for the :0 display 5900. If you want to change it, just edit
 
 
 ## Usage
-`runvncserver start|stop|restart`  
+`runvncserver start|stop|restart|status`  
 
 `start` - will start the TigerVNC Server on display :0 (scraping) default on port 5900  
 `stop` - will kill the TigerVNC Server on display :0  
 `restart` - will restart the TigerVNC Server on display :0 (if it's not running, it will just start it)  
+`status` - will tell whether the TigerVNC Server is running or not
 
 ## Files
 * *~/.vnc*  
-main user directory (if it doesn't exist, create it with `mkdir -p ~/.vnc`)
+main TigerVNC server user directory (if it doesn't exist, create it with `mkdir -p ~/.vnc`)
 * *~/.vnc/passwd*  
 password file for VNC Server (if it doesn't exist, create it with `vncpasswd`)
 * *~/.vnc/logfile*  
@@ -42,6 +43,9 @@ Like this:
 
 > user@linux:~$ cat ~/.xsessionrc  
 > /home/user/runvncserver/runvncserver >/dev/null 2>&1
+
+## TODO
+In the future, I try to implement a separate logfile for the script, since the logfile stored in ~/.vnc/logfile has only the TigerVNC Server output.
 
 ## Author
 István Sebestyén-Teleki

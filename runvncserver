@@ -40,6 +40,8 @@ PIDFILE="${VNCDIR}/${HOSTNAME}${DISPLAY}.pid"
 # Add some color to the script
 OK="[\033[1;32mok\033[0m]"
 FAILED="[\033[1;31mfailed\033[0m]"
+RUNNING="[\033[1;32mrunning\033[0m]"
+NOTRUNNING="[\033[1;31mnot running\033[0m]"
 
 # Function to get the process id of the VNC Server
 fn_pid() {
@@ -137,8 +139,22 @@ case "$1" in
         fi
     ;;
 
+    status)
+        echo -n "Status of the VNC server: "
+        fn_pid
+        if [ $? -eq 0 ]
+        then
+            echo -e "$RUNNING (pid: $VAR)"
+            exit 0
+        else
+            echo -e $NOTRUNNING
+        fi
+        ;;
+
     *)
-        echo "Usage: ${SCRIPTNAME} start|stop|restart"
+        echo
+        echo "Usage: $0 start|stop|restart|status"
+        echo
         exit 1
     ;;
 esac
