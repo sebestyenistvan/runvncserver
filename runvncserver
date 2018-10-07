@@ -76,7 +76,7 @@ case "$1" in
         if [ $? -eq 0 ]
         then
             echo -e ${FAILED}
-            echo -e "VNC Server is running with PID ${VAR}"
+            echo -e "VNC Server is running (pid: ${VAR})"
         else
             ${VNCSERVER} -display ${DISPLAY} -passwordfile ${PASSWDFILE} -rfbport ${VNCPORT} >> ${LOGFILE} 2>&1 &
             fn_pid
@@ -125,13 +125,13 @@ case "$1" in
 
     stop)
     
-        echo -n "Stopping VNC Server with PID: "
+        echo -n "Stopping VNC Server: "
         fn_pid
         if [ $? -eq 0 ]
         then
-            echo -n "${VAR} "
             kill -9 ${VAR}
-            echo -e ${OK}
+            echo -ne ${OK}
+            echo -e " (pid: ${VAR})"
         else
             echo -e ${FAILED}
             echo -e "VNC Server is not running."
