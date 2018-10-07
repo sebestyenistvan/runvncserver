@@ -1,5 +1,5 @@
 # runvncserver
-Shell script to run TigerVNC server 
+Shell script to run TigerVNC server on the actual desktop (scraping).
 
 ## Prerequisites
 TigerVNC server installed (tigervnc-scraping-server on debian)  
