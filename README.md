@@ -35,7 +35,7 @@ pid file (created by script)
 ## Notes
 
 ### Kill the TigerVNC Server on command line
-There's a command for killing the vnc server on the command line, by `vncserver -kill :0` if the vnc server runs at the :0 display.  
+There's a command for killing the vnc server on the command line, by `vncserver -kill :0` if the vnc server runs at the :0 display, reads the actual pid from the file and kills it.  
 However, this command looks for the pid file in your *~/.vnc* directory.  
 The pid file format must be as following: *~/.vnc/${HOSTNAME}${DISPLAY}.pid*  
 
