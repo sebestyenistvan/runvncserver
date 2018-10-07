@@ -47,6 +47,8 @@ Like this:
 ## TODO
 In the future, I try to implement a separate logfile for the script, since the logfile stored in ~/.vnc/logfile has only the TigerVNC Server output.
 
+Further, I want to test it on other linux systems, whether it is working there, too, since this script was written on a debian machine (Debian stretch). Feel free to write me if you have any issues on other distributions or architectures.
+
 ## Author
 István Sebestyén-Teleki
 
