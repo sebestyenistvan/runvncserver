@@ -4,7 +4,9 @@ Shell script to run TigerVNC server
 ## Prerequisites
 TigerVNC server installed (tigervnc-scraping-server on debian)  
 
-The script checks, if you have already a .vnc Directory in your home ($HOME). You have to set a vnc password with the "vncpasswd" command, this will result a ~/.vnc/passwd file. However, on debian, the default TigerVNC server binary for scraping is a symbolic link in /usr/bin/x0vncserver (where x0 means the Xsession at display :0). This x0vncserver is a 'dummy' version of the main TigerVNC server binary. Unlike the full version, this doesn't create a virtual display, instead it just shares the current X session at display :0.
+## How it works
+The script checks, if you have already a .vnc Directory in your home ($HOME). You have to set a vnc password with the "vncpasswd" command, this will result a ~/.vnc/passwd file.  
+On debian, the default TigerVNC server binary for scraping is a symbolic link in /usr/bin/x0vncserver (where x0 means the Xsession at display :0). This x0vncserver is a 'dummy' version of the main TigerVNC server binary. Unlike the full version, this doesn't create a virtual display, instead it just shares the current X session at display :0.
 
 ## Features
 The script runs in the background, creates a logfile (default ~/.vnc/logfile), where it stores the actual x0vncserver logging information. There is also a pid file, default ~/.vnc/${HOSTNAME}${DISPLAY}.pid where the process id is stored.
