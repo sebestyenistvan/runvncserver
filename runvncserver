@@ -59,6 +59,7 @@ fn_pid() {
 if [ ! -d ${VNCDIR} ]
 then
     echo -e "Directory ${VNCDIR} doesn't exist. Create it first." ${FAILED}
+    echo
     exit 1
 fi
 
@@ -66,6 +67,7 @@ if [ ! -f ${PASSWDFILE} ]
 then
     echo -e "${PASSWDFILE} doesn't exist. Create VNC password first. ${FAILED}"
     echo "Type \"vncpasswd\" to create passwd file."
+    echo
     exit 1
 fi
 
@@ -77,11 +79,20 @@ case "$1" in
         then
             echo -e ${FAILED}
             echo -e "VNC Server is running (pid: ${VAR})"
+	    echo
         else
             ${VNCSERVER} -display ${DISPLAY} -passwordfile ${PASSWDFILE} -rfbport ${VNCPORT} >> ${LOGFILE} 2>&1 &
-            fn_pid
-            echo ${VAR} > ${PIDFILE}
-            echo -e ${OK}
+	    if [ $? -eq 0 ]
+	    then
+            	fn_pid
+            	echo ${VAR} > ${PIDFILE}
+            	echo -e ${OK}
+	    	echo
+	else
+		echo -e $FAILED
+		echo
+		fi
+
         fi
 
         ;;
@@ -98,12 +109,14 @@ case "$1" in
             then 
                 ${VNCSERVER} -display ${DISPLAY} -passwordfile ${PASSWDFILE} -rfbport ${VNCPORT} >> ${LOGFILE} 2>&1 &
                 echo -e ${OK}
+		echo
                 fn_pid 
                 echo ${VAR} > ${PIDFILE}
                 exit 0
             else
                 echo -e ${FAILED}
                 echo "Couldn't stop VNC Server. Exiting."
+		echo
                 exit 1
             fi
 
@@ -113,11 +126,13 @@ case "$1" in
             if [ $? -eq 0 ]
             then
                 echo -e ${OK}
+		echo
                 fn_pid
                 echo ${VAR} > ${PIDFILE}
             else
                 echo -e ${FAILED}
                 echo "Couldn't start VNC Server. Exiting."
+		echo
                 exit 1
             fi
         fi
@@ -132,9 +147,11 @@ case "$1" in
             kill -9 ${VAR}
             echo -ne ${OK}
             echo -e " (pid: ${VAR})"
+	    echo
         else
             echo -e ${FAILED}
             echo -e "VNC Server is not running."
+	    echo
             exit 1
         fi
     ;;
@@ -145,9 +162,11 @@ case "$1" in
         if [ $? -eq 0 ]
         then
             echo -e "$RUNNING (pid: $VAR)"
+	    echo
             exit 0
         else
             echo -e $NOTRUNNING
+	    echo
         fi
         ;;
 
