@@ -1,14 +1,14 @@
 #!/bin/bash
-# title             :runvncserver
+# title             :startvnc
 # description       :This script was written for the debian package tigervnc-scraping-server, in order to log in to the actual X session on display :0
 # author            :Istvan Sebestyen-Teleki
 # date              :2018.10.06.
 # version           :0.3
-# usage             :bash runvncserver
+# usage             :bash startvnc
 # notes             :install tigervnc-scraping-server (debian stretch)
 
 # What's the script name
-SCRIPTNAME="runvncserver"
+SCRIPTNAME="startvnc"
 
 # Where the x0vncserver executable is located, default:
 VNCSERVER="/usr/bin/x0vncserver"

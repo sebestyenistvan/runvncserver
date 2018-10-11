@@ -1,4 +1,4 @@
-# runvncserver
+# startvnc
 Shell script to run TigerVNC server on the actual desktop (scraping).
 
 ## Prerequisites
@@ -15,7 +15,7 @@ The default port is for the :0 display 5900. If you want to change it, just edit
 
 
 ## Usage
-`runvncserver start|stop|restart|status`  
+`startvnc start|stop|restart|status`  
 
 `start` - will start the TigerVNC Server on display :0 (scraping) default on port 5900  
 `stop` - will kill the TigerVNC Server on display :0  
@@ -44,7 +44,7 @@ If you want to automatically start with the Xsession, you can put it to your ~/.
 Like this:
 
 > user@linux:~$ cat ~/.xsessionrc  
-> /home/user/runvncserver/runvncserver start >/dev/null 2>&1
+> /home/user/runvncserver/startvnc start >/dev/null 2>&1
 
 ## Links
 For further information, please take a look at the TigerVNC server documentation files on
